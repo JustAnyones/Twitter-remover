@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         No twitter for you
+// @name         No social media
 // @namespace    https://github.com/JustAnyones/Twitter-remover/
-// @version      0.2
-// @description  Prevents you from opening twitter at any cost.
+// @version      0.3
+// @description  Prevents you from opening social media websites at any cost.
 // @author       JustAnyone
 // @match        https://twitter.com/*
 // @match        https://mobile.twitter.com/*
@@ -15,6 +15,14 @@
 
 (function() {
     'use strict';
+
+    let is_twitter = window.location.host === "twitter.com";
+    
+    // SrPelo and ChickenThoughts is good
+    if (is_twitter && (window.location.pathname.includes("SrPelo") || window.location.pathname.includes("ChickyThoughts"))) {
+      return 0;
+    }
+  
     window.stop();
-    window.location.replace("https://www.bible.com/en-GB/bible/59/GEN.1.ESV"); // lol
+    window.location.replace("https://www.researchgate.net/publication/323903323_A_Study_on_Positive_and_Negative_Effects_of_Social_Media_on_Society"); // lets educate 'em'
 })();
